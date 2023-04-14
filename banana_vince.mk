@@ -26,19 +26,29 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 $(call inherit-product, device/xiaomi/vince/device.mk)
 
 # Inherit extra stuff
-$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+# $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
-# Inherit some common Spark-OS stuff.
-$(call inherit-product, vendor/spark/config/common_full_phone.mk)
+# Inherit some common Banana stuff.
+$(call inherit-product, vendor/banana/config/common.mk)
 
-# Spark flags
+# BananaDroid Flags
+BANANA_MAINTAINER := rabilrbl
 TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+BANANA_BUILD_TYPE := OFFICIAL
+
 TARGET_SUPPORTS_QUICK_TAP := false
+# Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 720
+
+# Charging Animation
+TARGET_INCLUDE_PIXEL_CHARGER := true
+
+TARGET_BUILD_APERTURE_CAMERA := true
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := vince
-PRODUCT_NAME := spark_vince
+PRODUCT_NAME := banana_vince
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 5 Plus
 PRODUCT_MANUFACTURER := Xiaomi
