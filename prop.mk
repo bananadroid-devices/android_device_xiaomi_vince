@@ -156,6 +156,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 debug.gralloc.enable_fb_ubwc=1 \
 debug.hwui.renderer=opengl \
 debug.hwui.skia_atrace_enabled=false \
+debug.hwui.use_partial_updates=false \
 debug.mdpcomp.logs=0 \
 ro.hardware.egl=adreno \
 ro.hardware.vulkan=adreno \
