@@ -20,8 +20,7 @@ ro.sys.fw.dex2oat_thread_count=8
 
 # Audio
 PRODUCT_VENDOR_PROPERTIES += \
-af.fast_track_multiplier=2 \
-audio.deep_buffer.media=true \
+af.fast_track_multiplier=1 \
 audio.offload.disable=true \
 audio.offload.min.duration.secs=30 \
 audio.offload.video=true \
@@ -157,6 +156,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 debug.gralloc.enable_fb_ubwc=1 \
 debug.hwui.renderer=opengl \
 debug.hwui.skia_atrace_enabled=false \
+debug.hwui.use_partial_updates=false \
 debug.mdpcomp.logs=0 \
 ro.hardware.egl=adreno \
 ro.hardware.vulkan=adreno \
@@ -166,7 +166,8 @@ vendor.display.disable_skip_validate=1 \
 vendor.display.disable_rotator_downscale=1 \
 vendor.display.enable_default_color_mode=1 \
 vendor.display.disable_scaler=1 \
-vendor.gralloc.enable_fb_ubwc=1
+vendor.gralloc.enable_fb_ubwc=1 \
+vendor.gralloc.disable_ahardware_buffer=1
 
 PRODUCT_SYSTEM_PROPERTIES += \
 debug.egl.hw=1 \
@@ -202,13 +203,6 @@ ro.fm.transmitter=false
 # Frp
 PRODUCT_SYSTEM_PROPERTIES += \
 ro.frp.pst=/dev/block/bootdevice/by-name/config
-
-# IORapd
-PRODUCT_SYSTEM_PROPERTIES += \
-ro.iorapd.enable=false \
-iorapd.perfetto.enable=false \
-iorapd.readahead.enable=false \
-persist.device_config.runtime_native_boot.iorap_readahead_enable=false
 
 # Logging
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -307,7 +301,7 @@ PRODUCT_SYSTEM_PROPERTIES += \
 debug.sf.use_phase_offsets_as_durations=1 \
 debug.sf.late.sf.duration=10500000 \
 debug.sf.late.app.duration=23500000 \
-debug.sf.early.sf.duration=21000000 \
+debug.sf.early.sf.duration=16000000 \
 debug.sf.early.app.duration=16500000 \
 debug.sf.earlyGl.sf.duration=13500000 \
 debug.sf.earlyGl.app.duration=21000000 \
@@ -347,10 +341,6 @@ vendor.usb.rmnet.func.name=rmnet_bam \
 vendor.usb.rmnet.inst.name=rmnet \
 vendor.usb.rndis.func.name=rndis_bam
 
-# Watchdog
-PRODUCT_SYSTEM_PROPERTIES += \
-ro.hw_timeout_multiplier=3
-
 # Wifi
 PRODUCT_VENDOR_PROPERTIES += \
 wifi.interface=wlan0
@@ -358,10 +348,6 @@ wifi.interface=wlan0
 # Wifi Display (Platform)
 PRODUCT_SYSTEM_PROPERTIES += \
 media.wfd.max_resolution=5
-
-# Zygote
-PRODUCT_SYSTEM_PROPERTIES += \
-zygote.critical_window.minute=10
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 # Suppress several logspams on user builds
