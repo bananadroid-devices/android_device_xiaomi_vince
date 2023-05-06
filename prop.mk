@@ -166,8 +166,7 @@ vendor.display.disable_skip_validate=1 \
 vendor.display.disable_rotator_downscale=1 \
 vendor.display.enable_default_color_mode=1 \
 vendor.display.disable_scaler=1 \
-vendor.gralloc.enable_fb_ubwc=1 \
-vendor.gralloc.disable_ahardware_buffer=1
+vendor.gralloc.enable_fb_ubwc=1
 
 PRODUCT_SYSTEM_PROPERTIES += \
 debug.egl.hw=1 \
